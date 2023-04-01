@@ -1,0 +1,12 @@
+	// firstAccount := accounts.EconomicAccount{}
+	// payTicket(&firstAccount, 1000)
+
+	// fmt.Println(firstAccount.GetSale())
+
+	// type VerifyAccount interface {
+// 	Withdrawal(ticketValue float64) string
+// }
+
+// func payTicket(account VerifyAccount, ticketValue float64) {
+// 	account.Withdrawal(ticketValue)
+// }

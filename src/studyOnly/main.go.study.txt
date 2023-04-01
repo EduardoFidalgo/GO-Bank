@@ -1,0 +1,86 @@
+package main
+
+import (
+	"bank/accounts"
+	"fmt"
+)
+
+func payTicket(account VerifyAccount, ticketValue float64) {
+	account.Withdrawal(ticketValue)
+}
+
+type VerifyAccount interface {
+	Withdrawal(ticketValue float64) string
+}
+
+func main() {
+	firstAccount := accounts.CurrentAccount{}
+	// firstAccount := accounts.EconomicAccount{}
+	firstAccount.Deposit(2000)
+	payTicket(&firstAccount, 1000)
+
+	fmt.Println(firstAccount.GetSale())
+
+	/*
+	* Tests
+	**/
+	// nomear para caso não vá preencher alguma informação especifica
+	// mainUserAccount := CurrentAccount{
+	// 	holder:        "main",
+	// 	accountNumber: 123456,
+	// 	sale:          200.50,
+	// }
+
+	// // passar apenas dado para caso todas as informações forem ser preenchidas
+	// secondUserAccount := CurrentAccount{
+	// 	"second",
+	// 	589,
+	// 	123456,
+	// 	200.50,
+	// }
+
+	// // nova conta corrente utilizando struct utilizando um diferente endereço de memoria || * = nova conta corrente
+	// var thirdUserAccount *CurrentAccount
+	// thirdUserAccount = new(CurrentAccount)
+	// thirdUserAccount.holder = "ThirdUser"
+	// thirdUserAccount.sale = 500
+
+	// FIRST
+	// firstClient := clients.Holder{
+	// 	Name:       "First User",
+	// 	Cpf:        "123.123.123.12",
+	// 	Profession: "DEV",
+	// }
+	// firstAccount := accounts.CurrentAccount{
+	// 	Holder:        firstClient,
+	// 	AgencyNumber:  123,
+	// 	AccountNumber: 123,
+	// 	Sale:          500,
+	// }
+
+	// // SECOND
+	// secondClient := clients.Holder{
+	// 	Name:       "Secount User",
+	// 	Cpf:        "321.321.321.32",
+	// 	Profession: "DEV",
+	// }
+
+	// secondAccount := accounts.CurrentAccount{
+	// 	Holder:        secondClient,
+	// 	AgencyNumber:  321,
+	// 	AccountNumber: 321,
+	// 	Sale:          500,
+	// }
+
+	// fmt.Println(secondAccount)
+
+	// status := firstUser.Transfer(600, &secondUser)
+	// fmt.Println(status)
+
+	// withdrawal := firstUser.withdrawal(1300)
+	// fmt.Println(withdrawal)
+
+	// status, valor := firstUser.deposit(1300)
+	// fmt.Println(status)
+	// fmt.Println(valor)
+}
